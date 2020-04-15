@@ -1,0 +1,64 @@
+<div class="main">
+    <div class=" form col-md-offset-4 col-md-4 ">
+        <div class="col-md-12 text-center" style="font-size: 30px;">User SignUp</div>
+
+        <form ngNativeValidate class="col-md-12" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label for="name">Name</label><label class="mandatory">*</label>
+                <input type="text" class="form-control" [(ngModel)]="user.name" maxlength="50" name="name" id="name"
+                    #name="ngModel" pattern="[a-zA-Z ]+" placeholder="Enter Name" required />
+                <div [hidden]="name.valid || name.pristine" class=" alert-danger">
+                    <div [hidden]="!name.hasError('required')">Name is required</div>
+                    <div [hidden]="!name.hasError('pattern')">Only alphabets allowed</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label><label class="mandatory">*</label>
+                <input type="email" class="form-control" [(ngModel)]="user.email" maxlength="50" name="email" id="email"
+                    placeholder="Enter email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    required />
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    <div [hidden]="!email.hasError('required')">Email is required</div>
+                    <div [hidden]="!email.hasError('pattern')">Invalid email</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label><label class="mandatory">*</label>
+                <input type="password" class="form-control" [(ngModel)]="password" #password1="ngModel"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" maxlength="20" name="password" id="password"
+                    placeholder="Enter Password" required />
+                <div [hidden]="password1.valid || password1.pristine" class="alert alert-danger">
+                    <div [hidden]="!password1.hasError('required')">Password is required</div>
+                    <div [hidden]="!password1.hasError('pattern')">Min. length 8 & alphanumeric & no special char.</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword"> Confirm Password</label><label class="mandatory">*</label>
+                <input type="password" class="form-control" [(ngModel)]="confirmPassword" #confirmPassword1="ngModel"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" maxlength="20" name="confirmPassword"
+                    id="confirmPassword" validateEqual="password" placeholder=" Re-enter Password" required />
+                <div [hidden]="confirmPassword1.valid || confirmPassword1.pristine" class="alert alert-danger">
+                    <div [hidden]="!confirmPassword1.hasError('required')">Password is required</div>
+                    <div [hidden]="!confirmPassword1.hasError('pattern')">Min. length 8 and alphanumeric</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactNo"> Contact Number</label><label class="mandatory">*</label>
+                <input type="text" class="form-control" [(ngModel)]="user.contactNo" maxlength="10" name="contactNo"
+                    #contactNo="ngModel" pattern="^[7-9][0-9]{9}$" minlength="10" maxlength="10" id="contactNo"
+                    placeholder=" Enter contact no." required />
+
+                <div [hidden]="contactNo.valid || contactNo.pristine" class="alert alert-danger">
+                    <div [hidden]="!contactNo.hasError('required')">Contact Number is required</div>
+                    <div [hidden]="!contactNo.hasError('pattern')">Invalid contactNo</div>
+                    <div [hidden]="!contactNo.hasError('minlength')">Mobile should be 10 digit</div>
+                </div>
+            </div>
+            <div *ngIf="showError" class="col-md-12 alert alert-danger">{{registerMessage}}</div>
+            <br><br><input type="submit" class="btn btn-primary" />
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+.form{
+    margin-top: 5%;
+    padding: 2%;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 15%;
+    background-color: white;
+    margin-left: 32%;
+}
+
+.mandatory{
+    color:red;
+}

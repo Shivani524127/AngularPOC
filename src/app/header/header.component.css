@@ -1,0 +1,10 @@
+.headerCss{
+    background-color: #35424a;
+    color: white;
+    font-style:normal;
+    font-size:35px;
+    padding: 1%;
+    width: 100%;
+    z-index: 100;
+    text-shadow: 2px 2px 2px black; 
+}
