@@ -3,7 +3,7 @@
     <div *ngFor="let product of products" >
         <mat-grid-tile>
             <mat-card class = "tp-card">
-               <div  (click)="onSelect(product)"> 
+                <div  (click)="onSelect(product)">  
                 <mat-card-header>
                    <mat-card-title>{{product.productName}}</mat-card-title>
                 </mat-card-header>
@@ -14,7 +14,7 @@
                      Price: {{product.price}}
                    </p>
                 </mat-card-content>
-               </div>
+               </div> 
                 <mat-card-actions>
                    <button class="btn btn-primary"  (click)="addToCart()">ADD</button> 
                    <button  class="btn btn-primary" (click) ="share()">SHARE</button>
