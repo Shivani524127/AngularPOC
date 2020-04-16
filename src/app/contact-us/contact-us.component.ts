@@ -16,6 +16,7 @@ alertBox: boolean =false;
   }
   onSubmit(){
     this.alertBox=true;
+    window.alert("A ticket has been raised against your registered email address!")
   }
   closeAlert(){
     this.router.navigate(['/signUp']);

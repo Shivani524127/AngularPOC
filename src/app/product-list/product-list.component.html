@@ -1,5 +1,5 @@
 <mat-grid-list  cols="3" rowHeight="400px" gutterSize="20px" >
-    <div *ngFor="let product of products">
+    <div *ngFor="let product of products" >
         <mat-grid-tile>
             <mat-card class = "tp-card">
                 <mat-card-header>
@@ -13,7 +13,7 @@
                    </p>
                 </mat-card-content>
                 <mat-card-actions>
-                   <button class="btn btn-primary" (click)="addToCart()">ADD</button> 
+                   <button class="btn btn-primary"  (click)="onSelect(product)">ADD</button> 
                    <button  class="btn btn-primary" (click) ="share()">SHARE</button>
                 </mat-card-actions>
              </mat-card>

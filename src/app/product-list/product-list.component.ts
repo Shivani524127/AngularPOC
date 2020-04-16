@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-list',
@@ -7,17 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   share() {
     window.alert("Product has been Shared");
-  }
-
-  addToCart() {
-    window.alert("Product has been added to your cart");
   }
 
    products = [{
@@ -71,5 +69,11 @@ export class ProductListComponent implements OnInit {
     "productDetail": "Boxster",
     "price": "$851.96"
   }];
+
+  onSelect(product){
+    console.log("selected ", product.id )
+    this.router.navigate([product.productName], {relativeTo: this.route});
+   }
+   
 
 }

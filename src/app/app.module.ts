@@ -10,14 +10,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule }    from '@angular/common/http';
-<<<<<<< HEAD
-import { UserHomePageComponent } from './user-home-page/user-home-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-=======
+import {ProductDetailsComponent} from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import {MatGridListModule, MatCardModule, MatButtonModule} from '@angular/material';
+import { MatGridListModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { UserLoggedInGuard } from './app.guard';
->>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,12 +26,9 @@ import { UserLoggedInGuard } from './app.guard';
     FooterComponent,
     LoginComponent,
     routingComponents,
-<<<<<<< HEAD
-    UserHomePageComponent,
-    ContactUsComponent
-=======
-    ProductListComponent
->>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
+    ContactUsComponent,
+    ProductListComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +37,8 @@ import { UserLoggedInGuard } from './app.guard';
     HttpModule,
     ReactiveFormsModule,
     HttpClientModule,
-<<<<<<< HEAD
-=======
-	 MatGridListModule,
-    MatCardModule, MatButtonModule
->>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
+	  MatGridListModule,
+    MatCardModule, MatButtonModule, BrowserAnimationsModule
   ],
   providers: [UserLoggedInGuard],
   bootstrap: [AppComponent]

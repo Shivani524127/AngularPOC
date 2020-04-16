@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     password: "",
     userName: ""
   }
-  auth: boolean= false;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -44,31 +43,21 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.login.email= this.loginForm.get('email').value;
     this.login.password=this.loginForm.get('password').value;
-    // console.log(this.login);
     this.loginService.findAll(this.login)
-<<<<<<< HEAD
-    .then(() => this.router.navigate(['/userHomePage']),
-          () => this.error(),)
-  .catch(response => {console.log("login failed")
-=======
-    .then(() => {
-      localStorage.setItem('userId',this.login.email);
-      localStorage.setItem('userName',this.login.email)
+    .then((response) => {
+      localStorage.setItem('userId',response.email);
+      console.log(response.userName)
+      localStorage.setItem('userName',response.userName)
       this.router.navigate(['/home'])
     } ,
           () => this.error())
   .catch(response => {console.log(response)
->>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
   });
   
   }
   error(){
-   
-    this.auth=true;
-    console.log(this.auth);
-  }
-  closeAlert(){
-    this.auth=false;
+    window.alert("Invalid credentails eneterd. Try again!");
+    this.loginForm.reset();
   }
   register(){
     this.router.navigate(['/signUp']);
