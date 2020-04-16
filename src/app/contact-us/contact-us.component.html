@@ -1,5 +1,5 @@
  <div >
-    <div  style="text-align:center">
+    <div style="text-align:center">
     <h2>Contact Us</h2>
     <p>Swing by for a cup of coffee, or leave us a message:</p>
     </div>
@@ -9,14 +9,22 @@
             style="width:100%">
         </div>
         <div class="column">
-            <form >
+            <form ngNativeValidate [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div clas="form-group">
                 <p> Call us at <span style="text-decoration: underline;">+01722779173</span> or write to us below:</p>
-                <label for="fname">Name</label><label class="mandatory" >*</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required />
+                <label for="name">Name</label><label class="mandatory" >*</label>
+                    <input type="text" id="name" name="name" formControlName="name" 
+                    class="form-control" placeholder="Your name.." [(ngModel)]="contact.name"required />
                 <label for="subject">Subject</label><label class="mandatory">*</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:90px" required></textarea>
-                <input type="submit" value="Submit" (click)="onSubmit()">
-            </form>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:90px" 
+                    formControlName="subject" class="form-control" placeholder="Your name.." 
+                    [(ngModel)]="contact.subject" required ></textarea>
+                <input type="submit" class="btn btn-primary" value="Submit" >
+                </div>
+            </form><br>
+            <p>Want to register?
+            <button routerLink="/signUp" class="btn btn-primary">Register</button></p>
+
         </div>
     </div>
 </div>  

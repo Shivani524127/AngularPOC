@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 import { LoginService } from '../login.service';
 
 
@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
     userName: ""
   }
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService
     ) { }
@@ -43,6 +41,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.login.email= this.loginForm.get('email').value;
     this.login.password=this.loginForm.get('password').value;
+    console.log(this.login.email);
     this.loginService.findAll(this.login)
     .then((response) => {
       localStorage.setItem('userId',response.email);
