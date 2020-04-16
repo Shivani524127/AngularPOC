@@ -10,7 +10,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule }    from '@angular/common/http';
-import { UserHomePageComponent } from './user-home-page/user-home-page.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import {MatGridListModule, MatCardModule, MatButtonModule} from '@angular/material';
+import { UserLoggedInGuard } from './app.guard';
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     FooterComponent,
     LoginComponent,
     routingComponents,
-    UserHomePageComponent
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +31,11 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+	 MatGridListModule,
+    MatCardModule, MatButtonModule
   ],
-  providers: [],
+  providers: [UserLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

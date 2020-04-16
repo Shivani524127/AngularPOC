@@ -36,9 +36,13 @@ export class LoginComponent implements OnInit {
     this.login.password=this.loginForm.get('password').value;
     // console.log(this.login);
     this.loginService.findAll(this.login)
-    .then(() => this.router.navigate(['/userHomePage']),
-          () => this.error(),)
-  .catch(response => {console.log(response.email)
+    .then(() => {
+      localStorage.setItem('userId',this.login.email);
+      localStorage.setItem('userName',this.login.email)
+      this.router.navigate(['/home'])
+    } ,
+          () => this.error())
+  .catch(response => {console.log(response)
   });
   
   }
