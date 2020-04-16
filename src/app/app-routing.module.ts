@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'signIn', component: LoginComponent},
   {path: 'contactUs', component: ContactUsComponent},
   {path: 'home', component: ProductListComponent,  canActivate: [UserLoggedInGuard]},
-  {path: 'home/:id', component: ProductDetailsComponent},
+  {path: 'home/:id', component: ProductDetailsComponent}
   
 ];  
 

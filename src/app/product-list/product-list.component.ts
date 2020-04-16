@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProductListService } from '../product-list.service';
+import { LoaderService } from '../loader/loader.service';
 
 
 @Component({
@@ -9,15 +11,32 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor( private router: Router, private route: ActivatedRoute) { }
+  constructor( private productListService: ProductListService, private router: Router, private route: ActivatedRoute, private loaderService: LoaderService) { }
 
   ngOnInit() {
   }
 
   share() {
-    window.alert("Product has been Shared");
-  }
+    this.productListService.shareProduct()
+      .then(response => {
+        window.alert("Product has been Shared");
+        this.router.navigate(['/home']);
+      })
+      .catch(error => {
+        console.log(error)
+       });
+     }
 
+  addToCart() {
+      this.productListService.addProduct()
+    .then(response => {
+      window.alert("Product has been added to your cart");
+      this.router.navigate(['/home']);
+    })
+    .catch(error => {
+      console.log(error)
+     });
+  }
    products = [{
     "id": 1,
     "productName": "Cadillac",

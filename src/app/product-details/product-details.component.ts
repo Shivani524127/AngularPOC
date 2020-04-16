@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { parse } from 'querystring';
+import { LoaderService } from '../loader/loader.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,7 +11,7 @@ import { parse } from 'querystring';
 export class ProductDetailsComponent implements OnInit {
   
   productName: String;
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private loaderService:LoaderService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => 

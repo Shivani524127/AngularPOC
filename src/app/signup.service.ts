@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SignupService {
   private url ='http://localhost:8080/'+'register';
   constructor(private http: Http) { }

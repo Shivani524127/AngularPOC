@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SignupService } from './signup.service';
+import { SignupService } from '../signup.service';
 import {Router} from '@angular/router';
+import { LoaderService } from '../loader/loader.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from '../loader/loader.interceptor';
 
 @Component({
   selector: 'app-signup',

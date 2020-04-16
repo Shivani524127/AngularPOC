@@ -13,9 +13,14 @@ import { HttpClientModule }    from '@angular/common/http';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { MatGridListModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatGridListModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule } from '@angular/material';
 import { UserLoggedInGuard } from './app.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './loader/loader.component';
+import {LoaderService} from './loader/loader.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {LoaderInterceptor} from './loader/loader.interceptor';
+
 
 
 @NgModule({
@@ -28,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     routingComponents,
     ContactUsComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +44,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
 	  MatGridListModule,
-    MatCardModule, MatButtonModule, BrowserAnimationsModule
+    MatCardModule, MatButtonModule, BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
-  providers: [UserLoggedInGuard],
+  providers: [UserLoggedInGuard, LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
