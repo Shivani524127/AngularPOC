@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
 
@@ -18,6 +18,14 @@ export class LoginComponent implements OnInit {
     email:"",
     password:""
   }
+  user={
+    userId: "",
+    email: "",
+    contactNo: "9",
+    password: "",
+    userName: ""
+  }
+  auth: boolean= false;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -26,10 +34,12 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-    });
+    this.loginForm = new FormGroup({
+      'email': new FormControl(this.login.email,[
+        Validators.required
+      ]),
+      'password': new FormControl(this.login.password, Validators.required)
+    });    
   }
   onLogin() {
     this.login.email= this.loginForm.get('email').value;
@@ -38,12 +48,19 @@ export class LoginComponent implements OnInit {
     this.loginService.findAll(this.login)
     .then(() => this.router.navigate(['/userHomePage']),
           () => this.error(),)
-  .catch(response => {console.log(response.email)
+  .catch(response => {console.log("login failed")
   });
   
   }
   error(){
-    
+   
+    this.auth=true;
+    console.log(this.auth);
   }
-
+  closeAlert(){
+    this.auth=false;
+  }
+  register(){
+    this.router.navigate(['/signUp']);
+  }
 }

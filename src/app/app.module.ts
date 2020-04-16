@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { UserHomePageComponent } from './user-home-page/user-home-page.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     FooterComponent,
     LoginComponent,
     routingComponents,
-    UserHomePageComponent
+    UserHomePageComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
