@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from './signup.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -25,11 +26,17 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     if (this.password === this.confirmPassword) {
       this.user.password = this.password;
-      this.signUpService.addUser(this.user)
+      this.signUpService .addUser(this.user)
       .then(response => {
-          console.log("added user")
+        alert("User Registered!!")
+        localStorage.setItem('userId',this.user.email);
+        localStorage.setItem('userName',this.user.name)
+        this.router.navigate(['/home']);
       })
       .catch(response => {
+        if(response.status === 500) { 
+        alert("EmailId already registered");
+       }
       });
     } else {
       this.registerMessage = 'Passwords do not match';
@@ -38,7 +45,7 @@ export class SignupComponent implements OnInit {
     console.log(this.user)
   }
 
-  constructor(private signUpService: SignupService) { }
+  constructor(private signUpService: SignupService, private router : Router) { }
 
   ngOnInit() {
   }

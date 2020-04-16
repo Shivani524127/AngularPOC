@@ -10,8 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule }    from '@angular/common/http';
+<<<<<<< HEAD
 import { UserHomePageComponent } from './user-home-page/user-home-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+=======
+import { ProductListComponent } from './product-list/product-list.component';
+import {MatGridListModule, MatCardModule, MatButtonModule} from '@angular/material';
+import { UserLoggedInGuard } from './app.guard';
+>>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
 
 
 @NgModule({
@@ -22,8 +28,12 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FooterComponent,
     LoginComponent,
     routingComponents,
+<<<<<<< HEAD
     UserHomePageComponent,
     ContactUsComponent
+=======
+    ProductListComponent
+>>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
   ],
   imports: [
     BrowserModule,
@@ -32,8 +42,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HttpModule,
     ReactiveFormsModule,
     HttpClientModule,
+<<<<<<< HEAD
+=======
+	 MatGridListModule,
+    MatCardModule, MatButtonModule
+>>>>>>> b79d9f4e966eb590b729589dd03208f3c689d2ad
   ],
-  providers: [],
+  providers: [UserLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

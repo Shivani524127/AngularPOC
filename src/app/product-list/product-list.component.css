@@ -1,0 +1,39 @@
+ 
+ mat-grid-list {
+     margin-top: 20px;
+     margin-left: 20px;
+     margin-right: 20px;
+     margin-bottom: 100px;
+ }
+
+  .mat-card {
+      width: 90%;
+      height: 90%;
+ }
+
+ .btn-primary {
+    width:auto;
+   margin-right: 10px;
+}
+.mat-card-image {
+   width:90%;
+   height: 50%;
+   padding-left: 34px;
+}
+
+.mat-card-title {
+    font-weight: bold;
+}
+
+.mat-card-content {
+   display: block;
+    margin-bottom: 16px;
+    padding-left: 17px;
+}
+
+.mat-card-actions{
+   margin-bottom: -8px;
+   padding-bottom: 0;
+   padding-left: 25px;
+}
+
