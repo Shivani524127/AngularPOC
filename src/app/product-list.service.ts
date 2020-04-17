@@ -13,7 +13,7 @@ export class ProductListService {
     return this.http
       .get(this.url)
       .toPromise()
-      .then(() => new Promise(resolve => setTimeout(resolve, 2000)))
+      .then(() => new Promise(resolve => setTimeout(resolve, 1000)))
       .catch(this.handleError);
   }
 
@@ -21,7 +21,7 @@ export class ProductListService {
     return this.http
       .get(this.url)
       .toPromise()
-      .then(() => new Promise(resolve => setTimeout(resolve, 2000)))
+      .then(() => new Promise(resolve => setTimeout(resolve, 1000)))
       .catch(this.handleError);
   }
 

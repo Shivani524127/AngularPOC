@@ -6,6 +6,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserLoggedInGuard } from './app.guard';
 import { ProductDetailsComponent} from './product-details/product-details.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,18 @@ const routes: Routes = [
   {path: 'signIn', component: LoginComponent},
   {path: 'contactUs', component: ContactUsComponent},
   {path: 'home', component: ProductListComponent,  canActivate: [UserLoggedInGuard]},
-  {path: 'home/:id', component: ProductDetailsComponent}
+  {path: 'home/:id', component: ProductDetailsComponent},
+  {
+    path: '',
+    component: SignupComponent,
+    children: [
+        {
+            // User Homepage
+            path: '**',
+            component: SignupComponent
+        }
+    ]
+}
   
 ];  
 

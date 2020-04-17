@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
     this.loginService.findAll(this.login)
     .then((response) => {
       localStorage.setItem('userId',response.email);
-      console.log(response.userName)
-      localStorage.setItem('userName',response.userName)
+      localStorage.setItem('userName',response.name)
       this.router.navigate(['/home'])
     } ,
           () => this.error())
