@@ -1,22 +1,19 @@
-<app-loader></app-loader>
 <mat-grid-list  cols="3" rowHeight="400px" gutterSize="20px" >
     <div *ngFor="let product of products" >
         <mat-grid-tile>
             <mat-card class = "tp-card">
-               <div  (click)="onSelect(product)"> 
                 <mat-card-header>
                    <mat-card-title>{{product.productName}}</mat-card-title>
                 </mat-card-header>
                 <img mat-card-image src="../../assets/car.jpg" alt="Car Image">
-                <mat-card-content >
+                <mat-card-content>
                    <p>
                      {{product.productDetail}}<br>
                      Price: {{product.price}}
                    </p>
                 </mat-card-content>
-               </div>
                 <mat-card-actions>
-                   <button class="btn btn-primary"  (click)="addToCart()">ADD</button> 
+                   <button class="btn btn-primary"  (click)="onSelect(product)" >ADD</button> 
                    <button  class="btn btn-primary" (click) ="share()">SHARE</button>
                 </mat-card-actions>
              </mat-card>

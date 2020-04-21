@@ -6,7 +6,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserLoggedInGuard } from './app.guard';
 import { ProductDetailsComponent} from './product-details/product-details.component';
-import { AppComponent } from './app.component';
+import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'contactUs', component: ContactUsComponent},
   {path: 'home', component: ProductListComponent,  canActivate: [UserLoggedInGuard]},
   {path: 'home/:id', component: ProductDetailsComponent},
+  {path: '**', component: PageNotFoundComponent},
   {
     path: '',
     component: SignupComponent,

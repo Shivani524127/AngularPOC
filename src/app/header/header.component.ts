@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router,
+    private messageService: MessageService) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
+    this.messageService.clear();
     this.router.navigate(['/signIn'])
   }
 

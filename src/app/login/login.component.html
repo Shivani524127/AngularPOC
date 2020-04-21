@@ -1,5 +1,4 @@
 ﻿<div class="main" overflow="scroll">
-    <app-loader></app-loader>
     <div class=" form col-md-offset-4 col-md-4 ">
         <div class="col-md-12 text-center" style="font-size: 30px;">User SignIn</div>
             <form ngNativeValidate [formGroup]="loginForm" class="col-md-12" (ngSubmit)="onLogin()" aria-required="true">
@@ -7,7 +6,7 @@
                 <div class="form-group" >
                     <label for="email">Email</label><label class="mandatory">*</label>
                     <input type="email" formControlName="email" name= "email" id="email" class="form-control" 
-                    [(ngModel)]="login.email" required/>
+                    [(ngModel)]="login.email" required />
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label><label class="mandatory">*</label>

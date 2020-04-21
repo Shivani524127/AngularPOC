@@ -1,0 +1,10 @@
+<div *ngIf="messageService.messages.length">
+        <mat-menu #appMenu="matMenu">
+                <button mat-menu-item (click)="messageService.clear()">Clear Message</button>
+                <button mat-menu-item (click)="openMessage()">Show Message</button>
+              </mat-menu>
+              
+              <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+  </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductListService } from '../product-list.service';
-import { LoaderService } from '../loader/loader.service';
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -10,11 +10,21 @@ import { LoaderService } from '../loader/loader.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+ 
 
-  constructor( private productListService: ProductListService, private router: Router, private route: ActivatedRoute, private loaderService: LoaderService) { }
+  constructor( private productListService: ProductListService, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private messageService: MessageService 
+    ) {
+    // throw new Error('Required');
+   
+   }
 
   ngOnInit() {
+   
   }
+  
 
   share() {
     this.productListService.shareProduct()

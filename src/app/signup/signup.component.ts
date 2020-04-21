@@ -12,20 +12,15 @@ import { LoaderInterceptor } from '../loader/loader.interceptor';
   providers: [SignupService]
 })
 export class SignupComponent implements OnInit {
-
-  registerMessage: any;
-
-
-  user = {
+ registerMessage: any;
+   user = {
     name: '',
     email: '',
     password: '',
-    contactNo: ''
-  };
+    contactNo: ''};
   password;
   confirmPassword;
   showError = false;
-
   onSubmit() {
     if (this.password === this.confirmPassword) {
       this.user.password = this.password;
@@ -34,17 +29,15 @@ export class SignupComponent implements OnInit {
         alert("User Registered!!")
         localStorage.setItem('userId',this.user.email);
         localStorage.setItem('userName',this.user.name)
-        this.router.navigate(['/home']);
-      })
-      .catch(response => {
+        this.router.navigate(['/home']);})
+        .catch(response => {
         if(response.status === 500) { 
         alert("EmailId already registered");
-       }
-      });
-    } else {
+        document.getElementById('email').focus();
+       }});
+      } else {
       this.registerMessage = 'Passwords do not match';
-      this.showError = true;
-    }
+      this.showError = true;}
     console.log(this.user)
   }
 

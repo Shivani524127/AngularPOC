@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -26,8 +27,11 @@ export class LoginComponent implements OnInit {
     userName: ""
   }
   constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private messageService:MessageService
     ) { }
 
   ngOnInit() {
@@ -41,12 +45,14 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.login.email= this.loginForm.get('email').value;
     this.login.password=this.loginForm.get('password').value;
-    console.log(this.login.email);
     this.loginService.findAll(this.login)
     .then((response) => {
       localStorage.setItem('userId',response.email);
-      localStorage.setItem('userName',response.name)
-      this.router.navigate(['/home'])
+      console.log(response.userName);
+      localStorage.setItem('userName',response.userName);
+      this.messageService.add('You have logged in succesfully '+ response.userName+' !!');
+      this.messageService.add('hi');
+      this.router.navigate(['/home']);
     } ,
           () => this.error())
   .catch(response => {console.log(response)
@@ -57,6 +63,7 @@ export class LoginComponent implements OnInit {
     window.alert("Invalid credentails eneterd. Try again!");
     this.loginForm.reset();
   }
+  
   register(){
     this.router.navigate(['/signUp']);
   }
