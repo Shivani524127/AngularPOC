@@ -7,7 +7,8 @@ import { MessageService } from '../message.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  providers: [ProductListService]
 })
 export class ProductListComponent implements OnInit {
  
@@ -20,9 +21,16 @@ export class ProductListComponent implements OnInit {
     // throw new Error('Required');
    
    }
-
+breakpoint;
   ngOnInit() {
-   
+    console.log(window.innerWidth)
+    if(window.innerWidth >= 770) {
+      this.breakpoint=3;
+    } else if (window.innerWidth >= 500 && window.innerWidth < 770){
+      this.breakpoint=2;
+    } else{
+      this.breakpoint=1;
+    }
   }
   
 

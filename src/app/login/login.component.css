@@ -28,3 +28,19 @@ button {
   color:red;
 }
 
+@media screen and (max-width: 500px) {
+  .form{
+      margin-top: 4%;
+      border-radius: 3px;
+      margin-left: 0%;
+  }
+  
+}
+
+@media screen and (max-width: 767px) and (min-width: 500px) {
+  .form{
+      margin-top: 4%;
+      margin-left: 0%;
+  }
+  
+}

@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     .then((response) => {
       localStorage.setItem('userId',response.email);
       console.log(response.userName);
-      localStorage.setItem('userName',response.userName);
+      localStorage.setItem('userName',response.name);
       this.messageService.add('You have logged in succesfully '+ response.userName+' !!');
       this.messageService.add('hi');
       this.router.navigate(['/home']);

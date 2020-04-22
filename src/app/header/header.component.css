@@ -13,5 +13,23 @@
     float: right;
     display: flex;
 }
+.info {
+    padding-top: 20px;
+    padding-right: 10px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 500px) {
+    .headerCss {
+          font-size: 20px;
+          text-align: center;
+          margin-top: 0px;
+          height: 80px;
+          padding-left:0px;
+          padding-right:0px;
+          width: 100%;
+      }
+  }
+  
 
 

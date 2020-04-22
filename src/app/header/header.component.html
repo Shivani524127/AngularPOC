@@ -2,9 +2,7 @@
     <div>
         Angular Application
         <div class="profile" *ngIf="isUserLoggedIn()">
-            <div style="padding-top: 20px;
-            padding-right: 10px;
-            font-size: 15px;">Hello, {{name}}</div>
+            <div  class="info">Hello, {{name}}</div>
             <div>
                 <button class="btn btn-primary " (click)="logout()">Logout</button>
             </div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -7,13 +8,13 @@ import { Headers, Http } from '@angular/http';
 })
 export class SignupService {
   private url ='http://localhost:8080/'+'register';
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   addUser(user): Promise<any> {
     return this.http
       .post(this.url, user)
       .toPromise()
-      .then(res => res.json())
+      .then(res => res)
       .catch(this.handleError);
   }
 
