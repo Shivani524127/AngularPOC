@@ -1,4 +1,4 @@
-FROM angular/ngcontainer
+FROM node:12.2.0
 COPY . /app/
 WORKDIR /app
 RUN npm install
