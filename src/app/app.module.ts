@@ -23,10 +23,11 @@ import { LoaderInterceptor} from './loader/loader.interceptor';
 import { GlobalErrorHandler } from './global-error.handler';
 import { MessagesComponent } from './messages/messages.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { environment } from '../environments/environment.prod'
 
 export function initApp(http: HttpClient) {
   return () => {
-    return http.get('http://localhost:8080/hi', {responseType:'text'})
+    return http.get(environment.API_URL+'hi', {responseType:'text'})
     .toPromise()
     .then(res =>{
       console.log("backend is working! res: ", res);

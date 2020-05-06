@@ -6,9 +6,8 @@ COPY . /app
 WORKDIR /app
 RUN npm install
 ## Build the angular app in production mode and store the artifacts in dist folder
-RUN npm run build
+RUN npm run  build
 # -- --output-path=dist
-
 
 ### STAGE 2: Setup ###
 FROM nginx:1.14.1-alpine
